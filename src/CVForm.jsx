@@ -17,7 +17,7 @@ const SkillBar = ({ skill, level }) => (
 
 const AnimatedTerminal = () => {
   const [text, setText] = useState('')
-  const fullText = '> Hello World!\n> Welcome to my interactive CV\n> Explore to learn more about me'
+  const fullText = '> Hello World!\n> Discover more about me\n> Feel free to contact me!'
 
   React.useEffect(() => {
     let i = 0
@@ -46,8 +46,8 @@ export function CvForm() {
     <div className="min-h-screen p-8 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100">
       <div className="max-w-4xl mx-auto p-8 bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl shadow-lg border border-purple-200">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-purple-800 mb-2">Jane Doe</h1>
-          <p className="text-xl text-purple-600">Full Stack Developer & UI/UX Enthusiast</p>
+          <h1 className="text-4xl font-bold text-purple-800 mb-2">Alexia Rueda</h1>
+          <p className="text-xl text-purple-600">Web Developer & Graphic Designer</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
