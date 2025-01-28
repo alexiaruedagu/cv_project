@@ -6,7 +6,7 @@ import { Admin } from './Admin';
 
 function App() {
   return (
-    <Router basename="/cv_project">
+    <Router basename="/">
       <Routes>
         <Route path="/admin" element={<Admin />} />
         <Route path="/auth" element={<AuthForms />} />
