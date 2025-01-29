@@ -13,7 +13,7 @@ export function Admin() {
   const [newExperience, setNewExperience] = useState({ job: '', type: '', experience: '', description: '' });
   const [updatedInfo, setUpdatedInfo] = useState({ name: '', profession: '', experience: '', email: '', phone: '', ubication: '' });
 
-  const API_URL = 'http://172.17.22.170/html/api.php';
+  const API_URL = 'https://grateful-meerkat-awake.ngrok-free.app/html/api.php';
 
   //verifica la autenticación
   useEffect(() => {
