@@ -11,17 +11,17 @@ export function CvForm() {
   const [cvEducation, setCvEducation] = useState([])
 
   useEffect(() => {
-    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/CV")
+    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/CV", {   method: 'GET',   headers: {     'ngrok-skip-browser-warning': 'true' }})
       .then((res) => res.json())
       .then((data) => setCvInfo(data))
       .catch((err) => console.error("Error fetching CV Info:", err))
 
-    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/exp")
+    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/exp", {   method: 'GET',   headers: {     'ngrok-skip-browser-warning': 'true' }})
       .then((res) => res.json())
       .then((data) => setCvExperience(data))
       .catch((err) => console.error("Error fetching CV Experience:", err))
 
-    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/edu")
+    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/edu", {   method: 'GET',   headers: {     'ngrok-skip-browser-warning': 'true' }})
       .then((res) => res.json())
       .then((data) => setCvEducation(data))
       .catch((err) => console.error("Error fetching CV Education:", err))

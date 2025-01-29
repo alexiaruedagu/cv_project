@@ -52,6 +52,8 @@ export function Admin() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
+        
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(updatedInfo),
@@ -75,6 +77,7 @@ export function Admin() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(newEducation),
@@ -100,6 +103,7 @@ export function Admin() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(newExperience),
@@ -124,6 +128,7 @@ export function Admin() {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
+        'ngrok-skip-browser-warning': 'true',
       },
     })
       .then((res) => res.json())
@@ -149,6 +154,7 @@ export function Admin() {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
+        'ngrok-skip-browser-warning': 'true',
       },
     })
       .then((res) => res.json())

@@ -36,10 +36,10 @@ export function AuthForms() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',
         },
         body: JSON.stringify(loginData),
       });
-
       const result = await response.json();
 
       if (response.ok) {
@@ -68,6 +68,7 @@ export function AuthForms() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',
         },
         body: JSON.stringify(registerData), //registerData contiene email y password
       });
