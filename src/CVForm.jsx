@@ -11,17 +11,17 @@ export function CvForm() {
   const [cvEducation, setCvEducation] = useState([])
 
   useEffect(() => {
-    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/CV", {   method: 'GET',   headers: {     'ngrok-skip-browser-warning': 'true' }})
+    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/CV", { method: 'GET', headers: { 'ngrok-skip-browser-warning': 'true' } })
       .then((res) => res.json())
       .then((data) => setCvInfo(data))
       .catch((err) => console.error("Error fetching CV Info:", err))
 
-    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/exp", {   method: 'GET',   headers: {     'ngrok-skip-browser-warning': 'true' }})
+    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/exp", { method: 'GET', headers: { 'ngrok-skip-browser-warning': 'true' } })
       .then((res) => res.json())
       .then((data) => setCvExperience(data))
       .catch((err) => console.error("Error fetching CV Experience:", err))
 
-    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/edu", {   method: 'GET',   headers: {     'ngrok-skip-browser-warning': 'true' }})
+    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/edu", { method: 'GET', headers: { 'ngrok-skip-browser-warning': 'true' } })
       .then((res) => res.json())
       .then((data) => setCvEducation(data))
       .catch((err) => console.error("Error fetching CV Education:", err))
@@ -67,7 +67,11 @@ export function CvForm() {
       <div className="max-w-4xl mx-auto p-8 bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl border border-purple-200">
         {/* Header Section */}
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-purple-800 mb-2">{cvInfo.name}</h1>
+          {cvInfo.map((item, index) => (
+            <h1 key={index} className="text-4xl font-bold text-purple-800 mb-2">
+              {item.name}
+            </h1>
+          ))}
         </header>
 
         {/* Contact Information */}
@@ -76,18 +80,22 @@ export function CvForm() {
             <AnimatedTerminal />
           </div>
           <div>
-            <div className="flex items-center mb-2 text-purple-700">
-              <Mail className="w-5 h-5 mr-2" />
-              <span>{cvInfo.email}</span>
-            </div>
-            <div className="flex items-center mb-2 text-purple-700">
-              <Phone className="w-5 h-5 mr-2" />
-              <span>{cvInfo.phone}</span>
-            </div>
-            <div className="flex items-center mb-2 text-purple-700">
-              <MapPin className="w-5 h-5 mr-2" />
-              <span>{cvInfo.ubication}</span>
-            </div>
+            {cvInfo.map((item, index) => (
+              <div key={index}>
+                <div className="flex items-center mb-2 text-purple-700">
+                  <Mail className="w-5 h-5 mr-2" />
+                  <span>{item.email}</span>
+                </div>
+                <div className="flex items-center mb-2 text-purple-700">
+                  <Phone className="w-5 h-5 mr-2" />
+                  <span>{item.phone}</span>
+                </div>
+                <div className="flex items-center mb-2 text-purple-700">
+                  <MapPin className="w-5 h-5 mr-2" />
+                  <span>{item.ubication}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         {/* Intro Section */}

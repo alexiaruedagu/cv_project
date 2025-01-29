@@ -21,6 +21,7 @@ export function Header() {
         fetchData(); */
     fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/CV", { method: 'GET', headers: { 'ngrok-skip-browser-warning': 'true' } })
       .then((res) => res.json())
+      .then((res)=> console.log(res.text()))
       .then((data) => setCvInfo(data))
       .catch((err) => console.error("Error fetching CV Info:", err));
   }, []);

@@ -37,7 +37,7 @@ export function Admin() {
         setUpdatedInfo(data);
       })
       .catch((err) => console.error("Error fetching CV Info:", err));
-  
+
     fetch(`${API_URL}/edu`, {
       method: 'GET',
       headers: { 'ngrok-skip-browser-warning': 'true' }
@@ -45,7 +45,7 @@ export function Admin() {
       .then((res) => res.json())
       .then((data) => setCvEducation(data))
       .catch((err) => console.error("Error fetching Education Info:", err));
-  
+
     fetch(`${API_URL}/exp`, {
       method: 'GET',
       headers: { 'ngrok-skip-browser-warning': 'true' }
@@ -65,7 +65,7 @@ export function Admin() {
       headers: {
         'Content-Type': 'application/json',
         'ngrok-skip-browser-warning': 'true',
-        
+
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(updatedInfo),
@@ -135,7 +135,7 @@ export function Admin() {
   //elimina edu
   const handleDeleteEducation = (id) => {
     const token = localStorage.getItem('token');
-  
+
     fetch(`${API_URL}/edu/${id}`, {
       method: 'DELETE',
       headers: {
@@ -156,7 +156,7 @@ export function Admin() {
         console.error('Error deleting education record:', error);
       });
   };
-  
+
 
   //elimina exp
   const handleDeleteExperience = (id) => {
@@ -173,7 +173,7 @@ export function Admin() {
       .then((data) => {
         if (data.success) {
           alert('Experience record deleted successfully!');
-          setCvExperience(cvExperience.filter((exp) => exp.id !== id)); 
+          setCvExperience(cvExperience.filter((exp) => exp.id !== id));
         } else {
           alert('Failed to delete experience record.');
         }
@@ -194,16 +194,22 @@ export function Admin() {
           <h2 className="text-2xl font-semibold text-purple-800 mb-4">CV Information</h2>
           {cvInfo && (
             <form onSubmit={handleUpdateCV} className="space-y-4">
-              {Object.keys(updatedInfo).map((key) => (
-                <div key={key}>
-                  <label className="block text-purple-700 mb-1 capitalize">{key}</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-2 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    value={updatedInfo[key]}
-                    onChange={(e) => setUpdatedInfo({ ...updatedInfo, [key]: e.target.value })}
-                  />
-                </div>
+              {cvInfo.map((item, index) => (
+                Object.keys(item).map((key) => (
+                  <div key={`${index}-${key}`}>
+                    <label className="block text-purple-700 mb-1 capitalize">{key}</label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      value={item[key]}
+                      onChange={(e) => {
+                        const updatedArray = [...cvInfo];
+                        updatedArray[index] = { ...item, [key]: e.target.value };
+                        setUpdatedInfo(updatedArray); // Actualiza el estado con los nuevos valores.
+                      }}
+                    />
+                  </div>
+                ))
               ))}
               <button
                 type="submit"

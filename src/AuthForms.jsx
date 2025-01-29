@@ -18,7 +18,7 @@ export function AuthForms() {
     }
   }, []);
 
-  const API_URL = 'https://grateful-meerkat-awake.ngrok-free.app/html/api.php';
+  const API_URL = 'http://172.17.22.170/html/api.php';
 
   //maneja los cambios en los inputs
   const handleInputChange = (e, setData) => {
@@ -36,10 +36,10 @@ export function AuthForms() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'ngrok-skip-browser-warning': 'true',
         },
         body: JSON.stringify(loginData),
       });
+
       const result = await response.json();
 
       if (response.ok) {
@@ -68,7 +68,6 @@ export function AuthForms() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'ngrok-skip-browser-warning': 'true',
         },
         body: JSON.stringify(registerData), //registerData contiene email y password
       });
