@@ -9,7 +9,7 @@ export function Header() {
   const [cvInfo, setCvInfo] = useState(null);
 
   useEffect(() => {
-    const fetchData = async()=>{
+/*     const fetchData = async()=>{
       try {
         const res = await fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/CV")
         const result = await res.text();
@@ -18,11 +18,11 @@ export function Header() {
         console.log('error')
       }
     }
-    fetchData();
-    /* fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/CV")
+    fetchData(); */
+    fetch("https://grateful-meerkat-awake.ngrok-free.app/html/api.php/CV", {   method: 'GET',   headers: {     'ngrok-skip-browser-warning': 'true' }})
        .then((res) => res.json())
       .then((data) => setCvInfo(data))
-      .catch((err) => console.error("Error fetching CV Info:", err)); */
+      .catch((err) => console.error("Error fetching CV Info:", err));
   }, []);
   
   const handleLogout = () => {
