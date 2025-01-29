@@ -27,20 +27,32 @@ export function Admin() {
   }, []);
 
   useEffect(() => {
-    fetch(`${API_URL}/CV`)
+    fetch(`${API_URL}/CV`, {
+      method: 'GET',
+      headers: { 'ngrok-skip-browser-warning': 'true' }
+    })
       .then((res) => res.json())
       .then((data) => {
         setCvInfo(data);
         setUpdatedInfo(data);
-      });
-
-    fetch(`${API_URL}/edu`)
+      })
+      .catch((err) => console.error("Error fetching CV Info:", err));
+  
+    fetch(`${API_URL}/edu`, {
+      method: 'GET',
+      headers: { 'ngrok-skip-browser-warning': 'true' }
+    })
       .then((res) => res.json())
-      .then((data) => setCvEducation(data));
-
-    fetch(`${API_URL}/exp`)
+      .then((data) => setCvEducation(data))
+      .catch((err) => console.error("Error fetching Education Info:", err));
+  
+    fetch(`${API_URL}/exp`, {
+      method: 'GET',
+      headers: { 'ngrok-skip-browser-warning': 'true' }
+    })
       .then((res) => res.json())
-      .then((data) => setCvExperience(data));
+      .then((data) => setCvExperience(data))
+      .catch((err) => console.error("Error fetching Experience Info:", err));
   }, []);
 
   //actualizar cv
