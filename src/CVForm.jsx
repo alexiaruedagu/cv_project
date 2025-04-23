@@ -103,7 +103,7 @@ export function CvForm() {
           <div className="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500 shadow-md">
             <h2 className="text-3xl font-semibold font-mono text-purple-800 mb-4">&gt; Hello World!</h2>
             <p className="text-purple-700 leading-relaxed">
-              My name is Alexia Rueda, and I am a passionate web developer and graphic designer.
+              My name is Alexia Rueda, and I'm a passionate web developer and graphic designer.
               With a solid foundation in technology and creativity, I specialize in creating unique digital
               experiences. <br /> Feel free to explore my CV to learn more about my skills, education, and professional journey.
             </p>
